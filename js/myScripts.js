@@ -114,7 +114,6 @@ window.addEventListener('load', function () {
 
 
 
-
 //Vote Percentage
     function votePercentage() {
         var percent1 = (votes[0].value / totalVotes.value) * 100;

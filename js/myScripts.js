@@ -20,6 +20,14 @@ window.addEventListener('load', function () {
 
     var votesCurrentCycle = votingData.voting[currentCycle];
 
+    var inputs = document.getElementsByTagName("input");
+
+    for (var i = 0; i < inputs.length; i+=1) {
+        if (inputs[i].value === undefined) {
+            alert("There is an error with your input value!");
+        }
+    }
+
 
     var candidateInputs = [
         document.getElementById("cand1"),
@@ -44,6 +52,20 @@ window.addEventListener('load', function () {
         document.getElementById("cand2pct"),
         document.getElementById("cand3pct"),
     ];
+
+    var partiesLocalStorage = {
+      candidateOne: parties[0],
+      candidateTwo: parties[1],
+      candidateThree: parties[2]
+    };
+
+    var namesLocalStorage = {
+      candidateOne: candidateInputs[0],
+      candidateTwo: candidateInputs[1],
+      candidateThree: candidateInputs[2]
+    };
+
+    var dateLocalStorage = votingData.electionDate;
 
 //Here is the total votes
     var totalVotes = document.getElementById("totalvotes");
@@ -102,7 +124,31 @@ window.addEventListener('load', function () {
         percents[0].value = parseFloat(percent1).toFixed(2) + "%";
         percents[1].value = parseFloat(percent2).toFixed(2) + "%";
         percents[2].value = parseFloat(percent3).toFixed(2) + "%";
+
+        //Setting an Object
+        return {
+          percent1: percents[0].value = parseFloat(percent1).toFixed(2) + "%",
+          percent2: percents[1].value = parseFloat(percent2).toFixed(2) + "%",
+          percent3: percents[2].value = parseFloat(percent3).toFixed(2) + "%"
+        };
     }
+
+    function setAllNamesPartiesLocalStorage() {
+        localStorage.setItem("candidatePartyOne", partiesLocalStorage.candidateOne.value);
+        localStorage.setItem("candidatePartyTwo", partiesLocalStorage.candidateTwo.value);
+        localStorage.setItem("candidatePartyThree", partiesLocalStorage.candidateThree.value);
+
+        localStorage.setItem("candidateNameOne", namesLocalStorage.candidateOne.value);
+        localStorage.setItem("candidateNameTwo", namesLocalStorage.candidateTwo.value);
+        localStorage.setItem("candidateNameThree", namesLocalStorage.candidateThree.value);
+
+        localStorage.setItem("candidatePercentOne", votePercentage().percent1);
+        localStorage.setItem("candidatePercentTwo", votePercentage().percent2);
+        localStorage.setItem("candidatePercentThree", votePercentage().percent3);
+
+        localStorage.setItem("Election Date", dateLocalStorage);
+    }
+    setAllNamesPartiesLocalStorage();
 
 
 //Date Set
@@ -133,4 +179,3 @@ window.addEventListener('load', function () {
 //Console Log Finished
     console.log(document.body.onload = 'The data has been loaded successfully!');
 });
-

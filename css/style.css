@@ -1,10 +1,13 @@
-/* Created by Eric Zorn on August 10, 2017 */
+/* Created by Eric Zorn on August 10, 2017
+
+   Eric Zorn, Module 9: Optional Local Storage Assignment with President Form, ICT 4570: Webscripting with JavaScript
+*/
 
 
 body {
     background-color: mediumseagreen !important;
     color: whitesmoke;
-    font-family: sans-serif;
+    font-family: SimSun, sans-serif;
 }
 
 .submitButton {
@@ -14,11 +17,4 @@ body {
     margin-left: 4%;
     font-size: 20px;
     border-radius: 5%;
-}
-
-.submitButton:hover {
-    background-color: white;
-    color: #a80036;
-    border: 2px solid white;
-    font-size: 20px;
 }

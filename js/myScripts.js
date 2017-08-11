@@ -1,5 +1,7 @@
 /**
  * Created by ericzorn on 8/10/17.
+ *
+ * Eric Zorn, Module 9: Optional Local Storage Assignment with President Form, ICT 4570: Webscripting with JavaScript
  */
 
 window.addEventListener('load', function () {
